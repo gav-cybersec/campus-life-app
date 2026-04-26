@@ -4,17 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Abbey Connect — Dining</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cabin:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- NAV -->
   <header class="nav">
     <div class="nav-inner">
       <a href="index.html" class="brand">
-        <div class="shield">✝</div>
+        <img src="https://belmontabbeycollege.edu/wp-content/uploads/2026/04/BAC150WhiteVertical-scaled-e1776691685237.png" alt="Belmont Abbey College" style="height:40px; width:auto;" />
         <div>
           <div class="brand-name">Abbey Connect</div>
           <div class="brand-sub">Belmont Abbey College</div>
@@ -27,61 +25,75 @@
         <a href="map.html" class="link">Map</a>
       </nav>
       <div class="search-row">
-        <input type="text" class="search" placeholder="Search…" />
-        <button class="search-btn">⌕</button>
+        <input type="search" class="search" id="searchInput" placeholder="Search campus…" />
+        <button class="search-btn" onclick="doSearch()">⌕</button>
       </div>
     </div>
   </header>
 
-  <!-- PAGE HEADER -->
   <div class="page-header">
-    <h1>Campus <span class="red">Dining</span></h1>
-    <p>Today's menus at Maurus Hall and Holy Grounds.</p>
+    <h1>Campus <span class="gold">Dining</span></h1>
+    <p>Today's menus at Maurus Hall and Holy Grounds café.</p>
   </div>
 
-  <!-- MEAL TABS -->
   <div class="tabs">
     <button class="tab" id="tab-breakfast" onclick="filterMeal('breakfast')">Breakfast</button>
     <button class="tab active" id="tab-lunch" onclick="filterMeal('lunch')">Lunch</button>
     <button class="tab" id="tab-dinner" onclick="filterMeal('dinner')">Dinner</button>
   </div>
 
-  <!-- MENU CARDS -->
-  <section class="dining-section">
-    <h2 class="section-label">Today's Selection</h2>
-    <div class="dining-grid" id="diningGrid"></div>
-  </section>
+  <main>
+    <section class="dining-section">
+      <h2 class="section-label">Today's Selection</h2>
+      <div class="dining-grid" id="diningGrid"></div>
+    </section>
 
-  <!-- HOURS -->
-  <section class="hours-section">
-    <h2 class="section-label" style="color:white">Hours Today</h2>
-    <div class="hours-grid">
-      <div class="hours-card">
-        <h3>🏛️ Maurus Hall Dining</h3>
-        <table><tr><td>Breakfast</td><td>7:00–10:00 AM</td></tr><tr><td>Lunch</td><td>11:00 AM–2:00 PM</td></tr><tr><td>Dinner</td><td>5:00–8:00 PM</td></tr></table>
+    <section class="hours-section">
+      <h2 class="hours-label">Hours Today</h2>
+      <div class="hours-grid">
+        <div class="hours-card">
+          <h3>🏛️ Maurus Hall Dining</h3>
+          <table>
+            <tr><td>Breakfast</td><td>7:00–10:00 AM</td></tr>
+            <tr><td>Lunch</td><td>11:00 AM–2:00 PM</td></tr>
+            <tr><td>Dinner</td><td>5:00–8:00 PM</td></tr>
+          </table>
+        </div>
+        <div class="hours-card">
+          <h3>☕ Holy Grounds Café</h3>
+          <table>
+            <tr><td>Mon–Fri</td><td>7:00 AM–9:00 PM</td></tr>
+            <tr><td>Weekend</td><td>9:00 AM–5:00 PM</td></tr>
+          </table>
+        </div>
+        <div class="hours-card">
+          <h3>📚 Library Café</h3>
+          <table>
+            <tr><td>Mon–Thu</td><td>8:00 AM–8:00 PM</td></tr>
+            <tr><td>Fri–Sun</td><td>10:00 AM–4:00 PM</td></tr>
+          </table>
+        </div>
       </div>
-      <div class="hours-card">
-        <h3>☕ Holy Grounds Café</h3>
-        <table><tr><td>Mon–Fri</td><td>7:00 AM–9:00 PM</td></tr><tr><td>Weekend</td><td>9:00 AM–5:00 PM</td></tr></table>
-      </div>
-      <div class="hours-card">
-        <h3>📚 Library Café</h3>
-        <table><tr><td>Mon–Thu</td><td>8:00 AM–8:00 PM</td></tr><tr><td>Fri–Sun</td><td>10:00 AM–4:00 PM</td></tr></table>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- FOOTER -->
   <footer class="footer">
-    <div class="footer-inner">
-      <span class="footer-brand">Abbey Connect — Belmont Abbey College</span>
-      <div class="footer-links">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-name">Abbey Connect</div>
+        <div class="footer-brand-sub">Belmont Abbey College</div>
+        <p><em>Ora et Labora</em> — Pray and Work.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
         <a href="index.html">Home</a>
         <a href="events.html">Events</a>
         <a href="dining.html">Dining</a>
-        <a href="map.html">Map</a>
+        <a href="map.html">Campus Map</a>
       </div>
-      <span class="footer-copy">&copy; 2026 Belmont Abbey College</span>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 Belmont Abbey College — Abbey Connect</span>
     </div>
   </footer>
 
@@ -90,25 +102,26 @@
     const menus = {
       breakfast: [
         { hall: "🏛️ Maurus Hall", items: ["Scrambled Eggs (V, GF)", "Blueberry Pancakes (V)", "Oatmeal Bar (V, GF)", "Applewood Bacon", "Fresh Fruit (V, GF)"] },
-        { hall: "☕ Holy Grounds", items: ["Avocado Toast (V)", "Greek Yogurt Parfait (V, GF)", "Almond Croissant (V)", "Breakfast Burrito"] },
+        { hall: "☕ Holy Grounds", items: ["Avocado Toast (V)", "Greek Yogurt Parfait (V, GF)", "Almond Croissant (V)", "Breakfast Burrito"] }
       ],
       lunch: [
         { hall: "🏛️ Maurus Hall", items: ["Grilled Chicken Sandwich", "Lentil Soup (V, GF)", "Caesar Salad (V)", "Pasta Primavera (V)", "BBQ Pork Rice Bowl (GF)"] },
-        { hall: "☕ Holy Grounds", items: ["Caprese Panini (V)", "Turkey Club", "Tomato Basil Soup (V, GF)", "Fresh Cookies (V)"] },
+        { hall: "☕ Holy Grounds", items: ["Caprese Panini (V)", "Turkey Club", "Tomato Basil Soup (V, GF)", "Fresh Cookies (V)"] }
       ],
       dinner: [
         { hall: "🏛️ Maurus Hall", items: ["Herb-Roasted Salmon (GF)", "Stuffed Bell Peppers (V, GF)", "Mashed Potatoes (V, GF)", "Roasted Vegetables (V, GF)", "Beef Stir Fry"] },
-        { hall: "☕ Holy Grounds", items: ["Grilled Cheese (V)", "Tomato Soup (V)", "Chips & Salsa (V, GF)"] },
-      ],
+        { hall: "☕ Holy Grounds", items: ["Grilled Cheese (V)", "Tomato Soup (V, GF)", "Chips & Salsa (V, GF)"] }
+      ]
     };
 
     function filterMeal(meal) {
       document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
       document.getElementById('tab-' + meal).classList.add('active');
+
       const grid = document.getElementById('diningGrid');
       grid.innerHTML = menus[meal].map(h => `
         <div class="menu-card">
-          <div class="menu-card-head"><strong>${h.hall}</strong></div>
+          <div class="menu-card-head">${h.hall}</div>
           <ul class="menu-list">
             ${h.items.map(i => `<li>${i}</li>`).join('')}
           </ul>
