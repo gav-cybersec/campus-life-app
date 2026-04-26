@@ -4,17 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Abbey Connect — Home</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cabin:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- NAV -->
   <header class="nav">
     <div class="nav-inner">
       <a href="index.html" class="brand">
-        <div class="shield">✝</div>
+        <img src="https://belmontabbeycollege.edu/wp-content/uploads/2026/04/BAC150WhiteVertical-scaled-e1776691685237.png" alt="Belmont Abbey College" style="height:40px; width:auto;" />
         <div>
           <div class="brand-name">Abbey Connect</div>
           <div class="brand-sub">Belmont Abbey College</div>
@@ -27,168 +25,108 @@
         <a href="map.html" class="link">Map</a>
       </nav>
       <div class="search-row">
-        <input type="text" id="searchInput" class="search" placeholder="Search…" />
+        <input type="search" class="search" id="searchInput" placeholder="Search campus…" />
         <button class="search-btn" onclick="doSearch()">⌕</button>
       </div>
     </div>
   </header>
 
-<!-- SLIDESHOW -->
-<section class="hero">
-  <div class="slide active">
-    <div class="slide-overlay"></div>
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvssUSXdxNwv8_qOcikp883IyrOMKsHgpHxg&s" alt="Campus" />
-    <div class="slide-text">
-      <span class="tag">Campus News</span>
-      <h1>Spring Research Fair — April 18th</h1>
-      <p>200+ student projects on display in the campus quad.</p>
-    </div>
-  </div>
-
-  <div class="slide">
-    <div class="slide-overlay"></div>
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOL46VIlgtaH-UkJZd4ARFxQ_ybtI3n2YIVQ&s" alt="Students" />
-    <div class="slide-text">
-      <span class="tag">Student Life</span>
-      <h1>New Student Center Now Open</h1>
-      <p>Come check out the expanded St. Maurus Hall lounge and Holy Grounds café.</p>
-    </div>
-  </div>
-
-  <div class="slide">
-    <div class="slide-overlay"></div>
-    <img src="https://belmontabbeycollege.edu/wp-content/uploads/2024/02/DSC09912-copyREV-scaled.jpg" alt="Athletics" />
-    <div class="slide-text">
-      <span class="tag">Athletics</span>
-      <h1>Crusaders Win Conference Championship</h1>
-      <p>Men's soccer takes the Conference Carolinas title for the second straight year.</p>
-    </div>
-  </div>
-
-  <div class="slide-nav">
-    <button onclick="goSlide(0)" class="dot active"></button>
-    <button onclick="goSlide(1)" class="dot"></button>
-    <button onclick="goSlide(2)" class="dot"></button>
-  </div>
-</section>
-
-<!-- ADD THIS CSS -->
-<style>
-.hero {
-  position: relative;
-  width: 100%;
-  height: 500px; /* Controls slideshow height */
-  overflow: hidden;
-}
-
-.slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: none;
-}
-
-.slide.active {
-  display: block;
-}
-
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* 🔥 This makes all images uniform */
-}
-
-.slide-overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-}
-
-.slide-text {
-  position: absolute;
-  bottom: 40px;
-  left: 40px;
-  color: white;
-  max-width: 500px;
-}
-
-.tag {
-  background: #B71234;
-  padding: 6px 12px;
-  font-size: 12px;
-  border-radius: 4px;
-  display: inline-block;
-  margin-bottom: 10px;
-}
-
-.slide-nav {
-  position: absolute;
-  bottom: 20px;
-  right: 30px;
-}
-
-.dot {
-  width: 12px;
-  height: 12px;
-  margin: 5px;
-  border-radius: 50%;
-  border: none;
-  background: #ccc;
-  cursor: pointer;
-}
-
-.dot.active {
-  background: #B71234;
-}
-</style>
-  <!-- HISTORY STRIP -->
-  <div class="history-strip">
-    <span class="est">Est. 1876</span>
-    <span class="pipe">|</span>
-    <span>Founded by Benedictine monks &mdash; the only Catholic college in North Carolina. Home to 1,500+ students guided by <em>Ora et Labora</em>: Pray and Work.</span>
-  </div>
-
-  <!-- SLOGAN -->
-  <div class="slogan">"Forming Students in Body, Mind, and Spirit"</div>
-
-  <!-- FEATURE CARDS -->
-  <section class="features">
-    <a href="events.html" class="card">
-      <div class="card-icon">📅</div>
-      <h2>Events</h2>
-      <p>Campus events, Masses, and activities for the week.</p>
-    </a>
-    <a href="dining.html" class="card">
-      <div class="card-icon">🍽️</div>
-      <h2>Dining</h2>
-      <p>Today's menu at Maurus Hall and Holy Grounds café.</p>
-    </a>
-    <a href="map.html" class="card">
-      <div class="card-icon">🗺️</div>
-      <h2>Campus Map</h2>
-      <p>Find buildings, parking, and accessibility routes.</p>
-    </a>
-    <div class="card wide">
-      <div class="card-icon">📢</div>
-      <div>
-        <h2>Announcements</h2>
-        <p>Library extended hours through finals &bull; Gratitude Bell rings noon–3pm daily &bull; Abbey Church open for morning Mass at 7am</p>
+  <section class="hero">
+    <div class="slide active">
+      <div class="slide-overlay"></div>
+      <img src="https://belmontabbeycollege.edu/wp-content/uploads/2024/02/DSC09912-copyREV-scaled.jpg" alt="campus" />
+      <div class="slide-text">
+        <div class="eyebrow">Campus News</div>
+        <h1>Spring Research Fair — April 18th</h1>
+        <p>200+ student projects on display in the campus quad.</p>
+        <a href="events.html" class="slide-cta">See Events →</a>
       </div>
+    </div>
+    <div class="slide">
+      <div class="slide-overlay"></div>
+      <img src="https://belmontabbey.org/wp-content/uploads/2021/09/GroupShotWeb.png" alt="students" />
+      <div class="slide-text">
+        <div class="eyebrow">Student Life</div>
+        <h1>Celebrating Founders Day</h1>
+        <p>Meeting outside the Basilica at 12:15pm to honor our Benedictine roots.</p>
+        <a href="events.html" class="slide-cta">See Events →</a>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="slide-overlay"></div>
+      <img src="https://npr.brightspotcdn.com/dims4/default/cba0c64/2147483647/strip/true/crop/1024x576+0+0/resize/880x495!/quality/90/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F22%2Fd0%2F64ecdfbc46988f9c2b0baf92b6c4%2F3crmcbelmontexterior.jpg" alt="belmont abbey" />
+      <div class="slide-text">
+        <div class="eyebrow">Academic</div>
+        <h1>Belmont Abbey Nursing Program</h1>
+        <p>Caramount Hospital welcomes the largest class of Abbey nurses in history.</p>
+        <a href="events.html" class="slide-cta">See Events →</a>
+      </div>
+    </div>
+    <div class="slide-nav">
+      <button onclick="goSlide(0)" class="dot active"></button>
+      <button onclick="goSlide(1)" class="dot"></button>
+      <button onclick="goSlide(2)" class="dot"></button>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <div class="strip">
+    <span class="est">Est. 1876</span>
+    <span class="pipe">|</span>
+    <span>Founded by Benedictine monks — the only Catholic college in North Carolina. Home to 1,500+ students guided by <em>Ora et Labora</em>: Pray and Work.</span>
+  </div>
+
+  <div class="slogan">"Forming Students in Body, Mind, and Spirit"</div>
+
+  <main>
+    <div class="cards">
+      <a href="events.html" class="card">
+        <div class="card-icon">📅</div>
+        <h2>Events</h2>
+        <p>Campus Masses, athletics, arts, and academic events all in one place.</p>
+      </a>
+      <a href="dining.html" class="card">
+        <div class="card-icon">🍽️</div>
+        <h2>Dining</h2>
+        <p>Today's menu at Maurus Hall and Holy Grounds café, plus hours.</p>
+      </a>
+      <a href="map.html" class="card">
+        <div class="card-icon">🗺️</div>
+        <h2>Campus Map</h2>
+        <p>Find buildings, parking, and accessibility routes across campus.</p>
+      </a>
+      <div class="card wide">
+        <div class="card-icon">📢</div>
+        <div>
+          <h2>Announcements</h2>
+          <p>Library extended hours through finals &nbsp;·&nbsp; Gratitude Bell rings noon–3 PM daily &nbsp;·&nbsp; Abbey Church open for morning Mass at 7 AM</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
   <footer class="footer">
-    <div class="footer-inner">
-      <span class="footer-brand">Abbey Connect — Belmont Abbey College</span>
-      <div class="footer-links">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-name">Abbey Connect</div>
+        <div class="footer-brand-sub">Belmont Abbey College</div>
+        <p>A student portal for Belmont Abbey — keeping the community informed and connected. <em>Ora et Labora.</em></p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
         <a href="index.html">Home</a>
         <a href="events.html">Events</a>
         <a href="dining.html">Dining</a>
-        <a href="map.html">Map</a>
+        <a href="map.html">Campus Map</a>
       </div>
-      <span class="footer-copy">&copy; 2026 Belmont Abbey College</span>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="https://belmontabbeycollege.edu/" target="_blank">Official Website</a>
+        <a href="https://thehub.bac.edu/" target="_blank">MyAbbey Portal</a>
+        <a href="https://belmontabbeycollege.edu/admissions/" target="_blank">Admissions</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 Belmont Abbey College — Abbey Connect</span>
     </div>
   </footer>
 
