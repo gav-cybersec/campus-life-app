@@ -4,17 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Abbey Connect — Events</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cabin:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- NAV -->
   <header class="nav">
     <div class="nav-inner">
       <a href="index.html" class="brand">
-        <div class="shield">✝</div>
+        <img src="https://belmontabbeycollege.edu/wp-content/uploads/2026/04/BAC150WhiteVertical-scaled-e1776691685237.png" alt="Belmont Abbey College" style="height:40px; width:auto;" />
         <div>
           <div class="brand-name">Abbey Connect</div>
           <div class="brand-sub">Belmont Abbey College</div>
@@ -27,96 +25,110 @@
         <a href="map.html" class="link">Map</a>
       </nav>
       <div class="search-row">
-        <input type="text" class="search" placeholder="Search…" />
-        <button class="search-btn">⌕</button>
+        <input type="search" class="search" id="searchInput" placeholder="Search campus…" />
+        <button class="search-btn" onclick="doSearch()">⌕</button>
       </div>
     </div>
   </header>
 
-  <!-- PAGE HEADER -->
   <div class="page-header">
-    <h1>Events <span class="red">Calendar</span></h1>
-    <p>Everything happening on campus this week.</p>
+    <h1>Events <span class="gold">Calendar</span></h1>
+    <p>Everything happening on campus — faith, arts, athletics, and more.</p>
   </div>
 
-  <!-- FILTER TABS -->
   <div class="tabs">
     <button class="tab" id="tab-past" onclick="filter('past')">Past</button>
     <button class="tab active" id="tab-today" onclick="filter('today')">Today</button>
     <button class="tab" id="tab-future" onclick="filter('future')">Upcoming</button>
   </div>
 
-  <!-- EVENTS LIST -->
-  <section class="events-section">
-    <div class="events-list" id="eventsList"></div>
+  <main>
+    <section class="events-section">
+      <div id="eventsList"></div>
 
-    <!-- FEATURED SLIDESHOW -->
-    <aside class="spotlight">
-      <h3>Featured</h3>
-      <div class="spotlight-card active">
-        <span class="tag">Arts</span>
-        <h4>Spring Play: A Midsummer Night's Dream</h4>
-        <p>Apr 14–16 &bull; The Haid Theater</p>
-        <a href="#" class="btn">Get Tickets</a>
-      </div>
-      <div class="spotlight-card">
-        <span class="tag">Athletics</span>
-        <h4>Crusaders Watch Party</h4>
-        <p>Apr 15 &bull; Maurus Hall Lounge</p>
-        <a href="#" class="btn">RSVP Free</a>
-      </div>
-      <div class="spotlight-card">
-        <span class="tag">Academic</span>
-        <h4>Research Fair 2026</h4>
-        <p>Apr 18 &bull; Campus Quad</p>
-        <a href="#" class="btn">Learn More</a>
-      </div>
-      <div class="spot-dots">
-        <button class="sdot active" onclick="goSpot(0)"></button>
-        <button class="sdot" onclick="goSpot(1)"></button>
-        <button class="sdot" onclick="goSpot(2)"></button>
-      </div>
-    </aside>
-  </section>
+      <aside class="spotlight">
+        <div class="spotlight-header"><h3>Featured Events</h3></div>
+        <div class="spotlight-body">
+          <div class="spotlight-card active">
+            <span class="tag">Arts</span>
+            <h4>Spring Play: A Midsummer Night's Dream</h4>
+            <p>Apr 14–16 · The Haid Theater</p>
+            <a href="#" class="btn">Get Tickets</a>
+          </div>
+          <div class="spotlight-card">
+            <span class="tag">Athletics</span>
+            <h4>Crusaders Watch Party</h4>
+            <p>Apr 15 · Maurus Hall Lounge</p>
+            <a href="#" class="btn">RSVP Free</a>
+          </div>
+          <div class="spotlight-card">
+            <span class="tag">Academic</span>
+            <h4>Research Fair 2026</h4>
+            <p>Apr 18 · Campus Quad</p>
+            <a href="#" class="btn">Learn More</a>
+          </div>
+          <div class="spot-dots">
+            <button class="sdot active" onclick="goSpot(0)"></button>
+            <button class="sdot" onclick="goSpot(1)"></button>
+            <button class="sdot" onclick="goSpot(2)"></button>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
 
-  <!-- FOOTER -->
   <footer class="footer">
-    <div class="footer-inner">
-      <span class="footer-brand">Abbey Connect — Belmont Abbey College</span>
-      <div class="footer-links">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-name">Abbey Connect</div>
+        <div class="footer-brand-sub">Belmont Abbey College</div>
+        <p><em>Ora et Labora</em> — Pray and Work.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
         <a href="index.html">Home</a>
         <a href="events.html">Events</a>
         <a href="dining.html">Dining</a>
-        <a href="map.html">Map</a>
+        <a href="map.html">Campus Map</a>
       </div>
-      <span class="footer-copy">&copy; 2026 Belmont Abbey College</span>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 Belmont Abbey College — Abbey Connect</span>
     </div>
   </footer>
 
   <script src="js/script.js"></script>
   <script>
     const events = [
-      { title: "Morning Mass", cat: "Faith", date: "Apr 8", time: "7:00 AM", place: "Abbey Church", period: "past" },
-      { title: "Intramural Soccer Finals", cat: "Sports", date: "Apr 10", time: "5:00 PM", place: "Athletic Fields", period: "past" },
-      { title: "Morning Mass", cat: "Faith", date: "Apr 12", time: "7:00 AM", place: "Abbey Church", period: "today" },
-      { title: "Gratitude Bell Gathering", cat: "Faith", date: "Apr 12", time: "12:00 PM", place: "Near Maurus Hall", period: "today" },
-      { title: "Research Fair Kickoff", cat: "Academic", date: "Apr 12", time: "10:00 AM", place: "Campus Quad", period: "today" },
-      { title: "Jazz Ensemble Concert", cat: "Arts", date: "Apr 12", time: "7:00 PM", place: "The Haid", period: "today" },
-      { title: "A Midsummer Night's Dream", cat: "Arts", date: "Apr 14", time: "7:30 PM", place: "The Haid", period: "future" },
-      { title: "Crusaders Watch Party", cat: "Sports", date: "Apr 15", time: "7:00 PM", place: "Maurus Hall", period: "future" },
-      { title: "Research Fair", cat: "Academic", date: "Apr 18", time: "10:00 AM", place: "Campus Quad", period: "future" },
-      { title: "Earth Day Clean-Up", cat: "Service", date: "Apr 22", time: "9:00 AM", place: "Campus Grounds", period: "future" },
+      { title: "Morning Mass",             cat: "Faith",    month: "APR", day: "8",  time: "7:00 AM",  place: "Abbey Church",     period: "past" },
+      { title: "Intramural Soccer Finals",  cat: "Sports",   month: "APR", day: "10", time: "5:00 PM",  place: "Athletic Fields",  period: "past" },
+      { title: "Morning Mass",             cat: "Faith",    month: "APR", day: "12", time: "7:00 AM",  place: "Abbey Church",     period: "today" },
+      { title: "Gratitude Bell Gathering", cat: "Faith",    month: "APR", day: "12", time: "12:00 PM", place: "Near Maurus Hall", period: "today" },
+      { title: "Research Fair Kickoff",    cat: "Academic", month: "APR", day: "12", time: "10:00 AM", place: "Campus Quad",      period: "today" },
+      { title: "Jazz Ensemble Concert",    cat: "Arts",     month: "APR", day: "12", time: "7:00 PM",  place: "The Haid Theater", period: "today" },
+      { title: "A Midsummer Night's Dream",cat: "Arts",     month: "APR", day: "14", time: "7:30 PM",  place: "The Haid Theater", period: "future" },
+      { title: "Crusaders Watch Party",    cat: "Sports",   month: "APR", day: "15", time: "7:00 PM",  place: "Maurus Hall",      period: "future" },
+      { title: "Research Fair",            cat: "Academic", month: "APR", day: "18", time: "10:00 AM", place: "Campus Quad",      period: "future" },
+      { title: "Earth Day Clean-Up",       cat: "Service",  month: "APR", day: "22", time: "9:00 AM",  place: "Campus Grounds",   period: "future" }
     ];
 
     function filter(period) {
       document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
       document.getElementById('tab-' + period).classList.add('active');
+
       const list = document.getElementById('eventsList');
       const filtered = events.filter(e => e.period === period);
-      list.innerHTML = filtered.length ? filtered.map(e => `
+
+      if (filtered.length === 0) {
+        list.innerHTML = '<p class="empty">No events for this period.</p>';
+        return;
+      }
+
+      list.innerHTML = filtered.map(e => `
         <div class="event-row">
           <div class="event-meta">
-            <div class="event-date">${e.date}</div>
+            <div class="event-month">${e.month}</div>
+            <div class="event-day">${e.day}</div>
             <div class="event-time">${e.time}</div>
           </div>
           <div class="event-info">
@@ -125,13 +137,13 @@
             <div class="event-place">📍 ${e.place}</div>
           </div>
         </div>
-      `).join('') : '<p class="empty">No events for this period.</p>';
+      `).join('');
     }
 
     let spotIdx = 0;
     function goSpot(n) {
-      document.querySelectorAll('.spotlight-card').forEach((c,i) => c.classList.toggle('active', i === n));
-      document.querySelectorAll('.sdot').forEach((d,i) => d.classList.toggle('active', i === n));
+      document.querySelectorAll('.spotlight-card').forEach((c, i) => c.classList.toggle('active', i === n));
+      document.querySelectorAll('.sdot').forEach((d, i) => d.classList.toggle('active', i === n));
       spotIdx = n;
     }
     setInterval(() => goSpot((spotIdx + 1) % 3), 5000);
