@@ -1,1 +1,55 @@
-This is a campus super life app.
+Abbey Connect — Belmont Abbey College
+A student web portal for Belmont Abbey College. Built for my Web Development final project.
+Live Site: https://gav-cybersec.github.io/campus-life-app/
+Repository: https://github.com/gav-cybersec/campus-life-app
+
+What It Does
+
+Home — Hero slideshow with campus news and quick links to Events, Dining, and the Map
+Events — Browse campus events filtered by Past, Today, or Upcoming
+Dining — View daily menus for Maurus Hall and Holy Grounds Café, plus dining hours
+Map — Campus map with key building locations and descriptions
+
+
+Technologies Used
+
+HTML5, CSS3, JavaScript
+Google Fonts (DM Serif Display + DM Sans)
+CSS Grid and Flexbox for layout
+GitHub Pages for deployment
+
+
+How to Run It
+
+Download or clone the repo
+Make sure the folder structure looks like this:
+
+abbey-connect/
+├── index.html
+├── events.html
+├── dining.html
+├── map.html
+├── css/
+│   └── style.css
+└── js/
+    └── script.js
+
+Open index.html in a browser — no installs needed
+
+
+Features
+
+Sticky navbar with glassmorphism blur effect and the official BAC logo
+Auto-advancing hero slideshow with manual dot navigation
+JavaScript tab filtering on the Events and Dining pages
+Fully responsive layout that works on desktop, tablet, and mobile
+Semantic HTML throughout for accessibility
+All images have alt text and color contrast meets WCAG AA standards
+
+
+Future Improvements
+
+Connect dining menus to a live API so they update automatically
+Add a real search feature that filters events and locations
+Build an interactive campus map using Google Maps
+Add a mobile hamburger menu for easier navigation on small screens
