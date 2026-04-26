@@ -3,18 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Abbey Connect — Map</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cabin:wght@400;500;600&display=swap" rel="stylesheet" />
+  <title>Abbey Connect — Campus Map</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- NAV -->
   <header class="nav">
     <div class="nav-inner">
       <a href="index.html" class="brand">
-        <div class="shield">✝</div>
+        <img src="https://belmontabbeycollege.edu/wp-content/uploads/2026/04/BAC150WhiteVertical-scaled-e1776691685237.png" alt="Belmont Abbey College" style="height:40px; width:auto;" />
         <div>
           <div class="brand-name">Abbey Connect</div>
           <div class="brand-sub">Belmont Abbey College</div>
@@ -27,35 +25,74 @@
         <a href="map.html" class="link active">Map</a>
       </nav>
       <div class="search-row">
-        <input type="text" class="search" placeholder="Search…" />
-        <button class="search-btn">⌕</button>
+        <input type="search" class="search" id="searchInput" placeholder="Search campus…" />
+        <button class="search-btn" onclick="doSearch()">⌕</button>
       </div>
     </div>
   </header>
-      <!-- IMAGE MAP -->
-<div class="map-canvas" style="text-align:center;">
-  <img 
-    src="https://belmontabbeycollege.edu/wp-content/uploads/2024/10/1729603680963-32e6ad02-f9ee-40a3-a9af-98fdb2cd0b4a_1.jpg" 
-    alt="Belmont Abbey Campus Map" 
-    style="width:100%; max-width:900px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.15);"
-  />
-</div>
-    </div>
-  </section>
 
-  <!-- FOOTER -->
+  <div class="page-header">
+    <h1>Campus <span class="gold">Map</span></h1>
+    <p>Find buildings, parking lots, and accessible routes across campus.</p>
+  </div>
+
+  <main>
+    <section class="map-section">
+      <div class="map-canvas">
+        <img
+          src="https://belmontabbeycollege.edu/wp-content/uploads/2024/10/1729603680963-32e6ad02-f9ee-40a3-a9af-98fdb2cd0b4a_1.jpg"
+          alt="Belmont Abbey College campus map"
+        />
+      </div>
+      <div class="location-grid">
+        <div class="location-card">
+          <strong>🏛️ Maurus Hall</strong>
+          <p>Main dining hall, student lounge, and Holy Grounds café.</p>
+        </div>
+        <div class="location-card">
+          <strong>⛪ Abbey Church</strong>
+          <p>Daily Mass at 7 AM. Open for prayer throughout the day.</p>
+        </div>
+        <div class="location-card">
+          <strong>🎭 The Haid Theater</strong>
+          <p>Performing arts center. Home of the Jazz Ensemble and spring play.</p>
+        </div>
+        <div class="location-card">
+          <strong>📚 Abbot Vincent Taylor Library</strong>
+          <p>Extended hours through finals. Library café on the first floor.</p>
+        </div>
+        <div class="location-card">
+          <strong>⚽ Athletic Fields</strong>
+          <p>Soccer, lacrosse, and intramural fields. Conference championship venue.</p>
+        </div>
+        <div class="location-card">
+          <strong>🅿️ Student Parking</strong>
+          <p>Lots A, B, and C available with valid student permit.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <footer class="footer">
-    <div class="footer-inner">
-      <span class="footer-brand">Abbey Connect — Belmont Abbey College</span>
-      <div class="footer-links">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-name">Abbey Connect</div>
+        <div class="footer-brand-sub">Belmont Abbey College</div>
+        <p><em>Ora et Labora</em> — Pray and Work.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
         <a href="index.html">Home</a>
         <a href="events.html">Events</a>
         <a href="dining.html">Dining</a>
-        <a href="map.html">Map</a>
+        <a href="map.html">Campus Map</a>
       </div>
-      <span class="footer-copy">&copy; 2026 Belmont Abbey College</span>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 Belmont Abbey College — Abbey Connect</span>
     </div>
   </footer>
-  </script>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
