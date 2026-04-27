@@ -99,56 +99,81 @@
 
   <script src="js/script.js"></script>
   <script>
+    // Dates are stored as ISO strings so they can be compared to today's real date
     const events = [
-      { title: "Morning Mass",             cat: "Faith",    month: "APR", day: "8",  time: "7:00 AM",  place: "Abbey Church",     period: "past" },
-      { title: "Intramural Soccer Finals",  cat: "Sports",   month: "APR", day: "10", time: "5:00 PM",  place: "Athletic Fields",  period: "past" },
-      { title: "Morning Mass",             cat: "Faith",    month: "APR", day: "12", time: "7:00 AM",  place: "Abbey Church",     period: "today" },
-      { title: "Gratitude Bell Gathering", cat: "Faith",    month: "APR", day: "12", time: "12:00 PM", place: "Near Maurus Hall", period: "today" },
-      { title: "Research Fair Kickoff",    cat: "Academic", month: "APR", day: "12", time: "10:00 AM", place: "Campus Quad",      period: "today" },
-      { title: "Jazz Ensemble Concert",    cat: "Arts",     month: "APR", day: "12", time: "7:00 PM",  place: "The Haid Theater", period: "today" },
-      { title: "A Midsummer Night's Dream",cat: "Arts",     month: "APR", day: "14", time: "7:30 PM",  place: "The Haid Theater", period: "future" },
-      { title: "Crusaders Watch Party",    cat: "Sports",   month: "APR", day: "15", time: "7:00 PM",  place: "Maurus Hall",      period: "future" },
-      { title: "Research Fair",            cat: "Academic", month: "APR", day: "18", time: "10:00 AM", place: "Campus Quad",      period: "future" },
-      { title: "Earth Day Clean-Up",       cat: "Service",  month: "APR", day: "22", time: "9:00 AM",  place: "Campus Grounds",   period: "future" }
+      { title: "Morning Mass",              cat: "Faith",    date: "2026-04-08", time: "7:00 AM",  place: "Abbey Church"     },
+      { title: "Intramural Soccer Finals",  cat: "Sports",   date: "2026-04-10", time: "5:00 PM",  place: "Athletic Fields"  },
+      { title: "Morning Mass",              cat: "Faith",    date: "2026-04-26", time: "7:00 AM",  place: "Abbey Church"     },
+      { title: "Gratitude Bell Gathering",  cat: "Faith",    date: "2026-04-26", time: "12:00 PM", place: "Near Maurus Hall" },
+      { title: "Research Fair Kickoff",     cat: "Academic", date: "2026-04-26", time: "10:00 AM", place: "Campus Quad"      },
+      { title: "Jazz Ensemble Concert",     cat: "Arts",     date: "2026-04-26", time: "7:00 PM",  place: "The Haid Theater" },
+      { title: "A Midsummer Night's Dream", cat: "Arts",     date: "2026-04-28", time: "7:30 PM",  place: "The Haid Theater" },
+      { title: "Crusaders Watch Party",     cat: "Sports",   date: "2026-04-29", time: "7:00 PM",  place: "Maurus Hall"      },
+      { title: "Research Fair",             cat: "Academic", date: "2026-05-02", time: "10:00 AM", place: "Campus Quad"      },
+      { title: "Earth Day Clean-Up",        cat: "Service",  date: "2026-05-06", time: "9:00 AM",  place: "Campus Grounds"   }
     ];
+
+    function getPeriod(isoDate) {
+      const today = new Date();
+      const todayStr = today.toISOString().slice(0, 10);
+      if (isoDate < todayStr) return 'past';
+      if (isoDate === todayStr) return 'today';
+      return 'future';
+    }
+
+    function formatDate(isoDate) {
+      const [, month, day] = isoDate.split('-');
+      const monthNames = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+      return { month: monthNames[parseInt(month, 10) - 1], day: String(parseInt(day, 10)) };
+    }
 
     function filter(period) {
       document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
       document.getElementById('tab-' + period).classList.add('active');
 
       const list = document.getElementById('eventsList');
-      const filtered = events.filter(e => e.period === period);
+      const filtered = events.filter(e => getPeriod(e.date) === period);
 
       if (filtered.length === 0) {
         list.innerHTML = '<p class="empty">No events for this period.</p>';
         return;
       }
 
-      list.innerHTML = filtered.map(e => `
-        <div class="event-row">
-          <div class="event-meta">
-            <div class="event-month">${e.month}</div>
-            <div class="event-day">${e.day}</div>
-            <div class="event-time">${e.time}</div>
+      list.innerHTML = filtered.map(e => {
+        const { month, day } = formatDate(e.date);
+        return `
+          <div class="event-row">
+            <div class="event-meta">
+              <div class="event-month">${month}</div>
+              <div class="event-day">${day}</div>
+              <div class="event-time">${e.time}</div>
+            </div>
+            <div class="event-info">
+              <span class="tag">${e.cat}</span>
+              <strong>${e.title}</strong>
+              <div class="event-place">📍 ${e.place}</div>
+            </div>
           </div>
-          <div class="event-info">
-            <span class="tag">${e.cat}</span>
-            <strong>${e.title}</strong>
-            <div class="event-place">📍 ${e.place}</div>
-          </div>
-        </div>
-      `).join('');
+        `;
+      }).join('');
     }
 
     let spotIdx = 0;
     function goSpot(n) {
-      document.querySelectorAll('.spotlight-card').forEach((c, i) => c.classList.toggle('active', i === n));
-      document.querySelectorAll('.sdot').forEach((d, i) => d.classList.toggle('active', i === n));
+      const cards = document.querySelectorAll('.spotlight-card');
+      const sdots = document.querySelectorAll('.sdot');
+      if (!cards.length) return;
+      cards.forEach((c, i) => c.classList.toggle('active', i === n));
+      sdots.forEach((d, i) => d.classList.toggle('active', i === n));
       spotIdx = n;
     }
-    setInterval(() => goSpot((spotIdx + 1) % 3), 5000);
+    if (document.querySelector('.spotlight-card')) {
+      setInterval(() => goSpot((spotIdx + 1) % document.querySelectorAll('.spotlight-card').length), 5000);
+    }
 
-    filter('today');
+    // Default to 'today' if there are events today, otherwise 'future'
+    const defaultTab = events.some(e => getPeriod(e.date) === 'today') ? 'today' : 'future';
+    filter(defaultTab);
   </script>
 </body>
 </html>
